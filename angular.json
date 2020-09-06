@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "BookingApp"
+    }
+  },
+  "defaultProject": "BookingApp",
+  "cli": {
+    "analytics": "37c0bddf-bb56-405d-8fbd-392f0da45d2c"
+  }
 }

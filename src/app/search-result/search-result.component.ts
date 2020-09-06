@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Bus } from '../models/bus.model'
+import { MessagingService } from '../messaging.service'
 
 @Component({
   selector: 'app-search-result',
@@ -10,10 +11,13 @@ export class SearchResultComponent implements OnInit {
 
   @Input() buses : Bus[] ;
   
-  constructor() { }
+  constructor(private message: MessagingService) { 
+    
+  }
 
   ngOnInit(): void {
     console.log(this.buses);
   }
+
 
 }
