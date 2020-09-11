@@ -1,8 +1,29 @@
-    <div style="margin-top: 10%;">
-        <div *ngFor="let bus of busesData">
-            <label>BusType: </label> {{bus.busType}}
-            <label>Location: </label> {{bus.location}}
-            <label>TotalSeats: </label> {{bus.totalSeats}}
+<div class="searchResult">
+    <form [formGroup]="form" #myform="ngForm" (ngSubmit)="submit(myform)">
+        <label for="busTypes">BusType</label>
+        <select formControlName="busTypes" id="bustypes">
+            <option *ngFor="let busType of busTypes; let i = index" [value]="busTypes[i].name">
+                {{busTypes[i].name}}
+            </option>
+        </select>
+        <button>submit</button>
+    </form>
+    <hr/>
+
+    <div class="table" *ngFor="let bus of buses">
+        <div class="rowGroup" >
+          <div class="row">
+            <div class="cell">{{bus.route.sourceTiming}}</div>
+            <div class="cell">{{bus.name}}</div>
+            <div class="cell">{{bus.location}}</div>
+          </div>
+          <div class="row">
+            <div class="cell">{{bus.busType}}</div>
+            <div class="cell">{{bus.name}}</div>
+            <div class="cell"><button class="custom-btn btn-16" (click) = "bookSeat(bus.id)" >Seat Book</button></div>
+          </div>
         </div>
         <hr/>
     </div>
+    
+</div>

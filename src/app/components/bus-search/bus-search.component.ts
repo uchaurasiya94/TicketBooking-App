@@ -19,58 +19,34 @@ declare function escape(s: string): string;
 })
 export class BusSearchComponent implements OnInit {
 
-  users: Object;
   bus: Bus = new Bus();
-  searchForm: FormGroup;
+  route : Route = new Route();
+  searchForm ; FormGroup;
   submitted = false;
   public buses: any[] = [];
   constructor(private data: DataService, private router: Router,private formBuilder: FormBuilder,private message: MessagingService) { }
 
   ngOnInit() {
-
     this.searchForm = this.formBuilder.group({
-      busType: ['', Validators.required],
-      totalSeats: ['', Validators.required],
-      route: null
-    });
-
-    this.data.getUsers().subscribe(data => {
-      this.users = data
-      console.log(this.users)
+      source: new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      destination: new FormControl('', Validators.required),
+      sourceTiming: new FormControl('', Validators.required),
     });
 
     // this.getAllBuses();
 
   }
   onSubmit(form){
-    
-    console.log(form.value);
-    console.log(form.value.busType);
     this.submitted = true;
-    this.getAllBuses();
-
-  //   if (this.searchForm.invalid) {
-  //     return;
-  // }
-
-  // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.searchForm.value))
+    this.getAllBuses(form.value.source, form.value.destination, form.value.sourceTiming);
   }
-  getAllBuses(): void {
-    let buses = [{
-      busType: 'Ac',
-      location: 'Mumbai',
-      totalSeats: 50
-    },
-    {
-      busType: 'Non-Ac',
-      location: 'Banglore',
-      totalSeats: 150
-    }]
-    this.message.sendMessage(buses);
-    this.router.navigate(['/result'])
-    // this.data.getSearchResult().subscribe(data => {
-    //   this.buses = data;
-    //   console.log(this.buses)
-    // })
+  getAllBuses(source: string, destination: string, sourceTiming : string): void {
+    this.data.getSearchResult().subscribe(data => {
+      this.buses = data;
+      //data.filter((bus:Bus)=> bus.route.source === source && bus.route.destination === destination)
+      console.log(this.buses);
+      this.message.sendMessage(this.buses);
+      this.router.navigate(['/result'])
+      })
   }
 }

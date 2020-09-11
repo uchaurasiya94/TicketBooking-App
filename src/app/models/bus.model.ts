@@ -11,7 +11,9 @@ export class Bus implements Deserializable {
     public location : String;
     public fare : number;
     public totalSeats : number;
+    public name : String;
     public route : Route = new Route();
+    public passengers : number;
   
     deserialize(input: any){
         // Assign input to our object BEFORE deserialize our bus to prevent already deserialized buses from being overwritten.

@@ -1,0 +1,150 @@
+ul {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style: none;
+}
+.custom-btn {
+    margin-left: 210px;
+    width: 300px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: #37a014;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+  }
+.btn-16 {
+    border: none;
+    color: #000;
+  }
+  .btn-16:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    direction: rtl;
+    z-index: -1;
+    box-shadow:
+     -7px -7px 20px 0px #fff9,
+     -4px -4px 5px 0px #fff9,
+     7px 7px 20px 0px #0002,
+     4px 4px 5px 0px #0001;
+    transition: all 0.3s ease;
+  }
+  .btn-16:hover {
+    color: #000;
+  }
+  .btn-16:hover:after {
+    left: auto;
+    right: 0;
+    width: 100%;
+  }
+  .btn-16:active {
+    top: 2px;
+  }
+
+.busTitle {
+    text-align: center;
+    font-size: xx-large;
+    padding: 20px 20px 20px 20px;
+}
+.selectSeats {
+    display: block;
+    border: black;
+    background: #f7f5f2;
+    float: left;
+    margin-left: 300px;
+    width: 700px;
+    margin-top: 50px;
+}
+
+.seatBlock{
+    margin-left: 230px;
+}
+
+.select-bus {
+    background-size: cover;
+    position: relative;
+    min-height:300px
+    }
+
+    .overlap {
+       
+        background-color: rgb(178, 190, 195,.5);
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%
+    }
+
+    .btn-search {
+        background: coral;
+        border-color:coral ;
+        color:#fff;
+    }
+
+    .seats {
+        width: 201px;
+        border: 3px solid #2b2a2a;
+        padding: 20px;
+        margin: 41px auto;
+        /* height: 100%; */
+        /* padding-left: 34px;
+        padding-right: 10px; */
+        float: left;
+    }
+
+.handle {
+    float: left;
+    width: 100%;
+}
+.handle img {
+    margin-left: 100px;
+}
+    .row1  {
+        float: left;
+        width: 50%;
+    }
+
+    .row1 ul {
+        width: 40%;
+        float: left;
+    }
+
+    .seat_plan_wrap {
+        display: block;
+        border: black;
+        background: #f7f5f2;
+        float: left;
+        margin-left: 300px;
+        width: 700px;
+        margin-top: 50px;
+    }
+    .total{
+       margin-top: 10px;
+        background: #F7F7F7;
+        padding: 7px; 
+        border: 1px solid #eee;
+    }   
+
+    .seat_plan {
+        height: 270px;
+    }
+    .alert {
+        float: left;
+    }
+

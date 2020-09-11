@@ -1,1 +1,91 @@
-<p>select-bus-seat works!</p>
+<div class="selectSeats">
+    <div class="busTitle">Select Seat</div>
+    <div class="total  bg-default">
+        Source : <input type="text" [(ngModel)]="bus.route.source">
+        Destination: <input type="text" id=destination [(ngModel)]="bus.route.destination" name="destination">
+    </div>
+    <div class="total  bg-default">
+        BusType : <input type="text" [(ngModel)]="bus.busType">
+        Passenger: <input type="text" [(ngModel)]="bus.passengers">
+    </div>
+
+    <div class="col-md-6 seatBlock">
+        <div class="seats">
+            <div class="handle">
+                <img src="../assets/img/handle.png" alt="">
+            </div>
+            <div class="row1">
+                <ul>
+                    <li>
+                        <a (click)="Seat('A1')" id="A1" title="[A1]">
+                            <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a (click)="Seat('B1')" id="B1" title="[B1]">
+                            <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a title="[C1]" (click)="Seat('C1')" id="C1">
+                            <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a title="[D1]" (click)="Seat('D1')" id="D1">
+                            <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="row1">
+                <ul>
+                    <li>
+                        <a title="[A2]" (click)="Seat('A2')" id="A2">
+                            <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a title="[B2]" (click)="Seat('B2')" id="B2">
+                            <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a title="[C2]" (click)="Seat('C2')" id="C2">
+                            <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a title="[D2]" (click)="Seat('D2')" id="D2">
+                            <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="total  bg-default">
+        <div class="seat_plan">
+
+        </div>
+    </div>
+    <div class="row ">
+        Selected Seats : <span *ngFor="let s of showSeatList">
+            <span>{{s.seatNo}} </span>
+        </span>
+        <!-- <table class="table ">
+            <tr>Seat: </tr>
+            <tr *ngFor="let s of showSeatList">
+                <td>{{s.seatNo}}</td>
+                <td>{{s.fare}}</td>
+            </tr>
+        </table> -->
+        <div>
+            <b> Amount :</b> {{total}}
+        </div>
+        <div>
+            <button class="custom-btn btn-16" (click)="confirmJourney()">Proceed to Payment</button>
+        </div>
+    </div>
+</div>

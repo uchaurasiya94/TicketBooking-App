@@ -2,11 +2,11 @@
 <div class="busTitle">Search for Buses</div>
     <form #myform="ngForm" (ngSubmit)="onSubmit(myform)"  class="example-form">
         <div class="example-full-width">
-            <input type="text" class="form-control"  id="busType" required [(ngModel)]="bus.busType" name="busType" placeholder="From*" >
+            <input type="text" class="form-control"  id="source" required [(ngModel)]="bus.route.source" name="source" placeholder="From*" >
         </div>
 
         <div class="example-full-width">
-            <input type="text" class="form-control"  id=totalSeats required [(ngModel)]="bus.totalSeats" name="totalSeats" placeholder="To*" >
+            <input type="text" class="form-control"  id=destination required [(ngModel)]="bus.route.destination" name="destination" placeholder="To*" >
         </div>
         <div class="example-full-width">
           <input placeholder="Date of Journey" class="form-control" type="text" onfocus="(this.type='date')" id="sourceTiming" [ngModel]="bus.route.sourceTiming | date:'y-MM-dd'" name="sourceTiming" >
