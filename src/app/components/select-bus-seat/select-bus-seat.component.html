@@ -1,14 +1,23 @@
 <div class="selectSeats">
     <div class="busTitle">Select Seat</div>
-    <div class="total  bg-default">
-        Source : <input type="text" [(ngModel)]="bus.route.source">
-        Destination: <input type="text" id=destination [(ngModel)]="bus.route.destination" name="destination">
-    </div>
-    <div class="total  bg-default">
-        BusType : <input type="text" [(ngModel)]="bus.busType">
-        Passenger: <input type="text" [(ngModel)]="bus.passengers">
-    </div>
-
+    <hr>
+    <div class="rowGroup" >
+        <div class="row">
+          <div class="cell">Source :</div> 
+          <div class="cell"><input type="text" [(ngModel)]="bus.route.source" class="inputform"></div>
+          
+          <div class="cell">Destination:</div> 
+          <div class="cell"><input type="text" class="inputform" id=destination [(ngModel)]="bus.route.destination" name="destination"></div>
+        </div>
+        <div class="row">
+          <div class="cell">BusType :</div>
+          <div class="cell"><input type="text" [(ngModel)]="bus.busType" class="inputform"></div>
+        
+          <div class="cell">Passenger:</div>
+          <div class="cell"><input type="text" [(ngModel)]="bus.passengers" class="inputform"></div>
+        </div>
+      </div>
+      <hr>
     <div class="col-md-6 seatBlock">
         <div class="seats">
             <div class="handle">
@@ -85,7 +94,7 @@
             <b> Amount :</b> {{total}}
         </div>
         <div>
-            <button class="custom-btn btn-16" (click)="confirmJourney()">Proceed to Payment</button>
+            <button class="custom-btn btn-16" (click)="confirmJourney(bus.id, total)">Proceed to Payment</button>
         </div>
     </div>
 </div>

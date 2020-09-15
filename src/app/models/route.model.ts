@@ -6,6 +6,8 @@ export class Route implements Deserializable{
     public destination : String;
     public sourceTiming : String;
     public destinationTiming :String;
+    public dateOfJourney : String;
+    public duration : String;
     
     deserialize(input: any): this {
         return Object.assign(this, input);

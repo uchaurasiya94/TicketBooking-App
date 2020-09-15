@@ -5,6 +5,11 @@ ul {
 li {
     list-style: none;
 }
+.inputform{
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
 .custom-btn {
     margin-left: 210px;
     width: 300px;
@@ -115,36 +120,46 @@ li {
 .handle img {
     margin-left: 100px;
 }
-    .row1  {
-        float: left;
-        width: 50%;
-    }
+.row1  {
+    float: left;
+    width: 50%;
+}
 
-    .row1 ul {
-        width: 40%;
-        float: left;
-    }
+.row1 ul {
+    width: 40%;
+    float: left;
+}
 
-    .seat_plan_wrap {
-        display: block;
-        border: black;
-        background: #f7f5f2;
-        float: left;
-        margin-left: 300px;
-        width: 700px;
-        margin-top: 50px;
-    }
-    .total{
-       margin-top: 10px;
-        background: #F7F7F7;
-        padding: 7px; 
-        border: 1px solid #eee;
-    }   
+.seat_plan_wrap {
+    display: block;
+    border: black;
+    background: #f7f5f2;
+    float: left;
+    margin-left: 300px;
+    width: 700px;
+    margin-top: 50px;
+}
 
-    .seat_plan {
-        height: 270px;
-    }
-    .alert {
-        float: left;
-    }
+.rowGroup {
+    display:table-row-group;
+}
+.row {
+    display:table-row;
+}
+.cell {
+    display:table-cell;
+    width:0%;
+    font-size: 15px;
+    padding-left: 20px;
+    text-align: center;
+}
+  
+
+
+.seat_plan {
+    height: 270px;
+}
+.alert {
+    float: left;
+}
 

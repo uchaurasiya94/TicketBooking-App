@@ -23,6 +23,7 @@
     "@angular/router": "~10.0.6",
     "@types/moment": "^2.13.0",
     "moment": "^2.27.0",
+    "payment-icons": "^1.2.1",
     "primeng": "^10.0.0-rc.3",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

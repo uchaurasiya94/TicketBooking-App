@@ -1,29 +1,63 @@
 <div class="searchResult">
     <form [formGroup]="form" #myform="ngForm" (ngSubmit)="submit(myform)">
-        <label for="busTypes">BusType</label>
-        <select formControlName="busTypes" id="bustypes">
-            <option *ngFor="let busType of busTypes; let i = index" [value]="busTypes[i].name">
-                {{busTypes[i].name}}
-            </option>
-        </select>
-        <button>submit</button>
-    </form>
-    <hr/>
-
-    <div class="table" *ngFor="let bus of buses">
-        <div class="rowGroup" >
-          <div class="row">
-            <div class="cell">{{bus.route.sourceTiming}}</div>
-            <div class="cell">{{bus.name}}</div>
-            <div class="cell">{{bus.location}}</div>
-          </div>
-          <div class="row">
-            <div class="cell">{{bus.busType}}</div>
-            <div class="cell">{{bus.name}}</div>
-            <div class="cell"><button class="custom-btn btn-16" (click) = "bookSeat(bus.id)" >Seat Book</button></div>
-          </div>
+        <div class="rowGroup">
+            <div class="row">
+                <div class="cell">BusType:</div>
+                <div class="cell">
+                    <select formControlName="busTypes" id="bustypes" [ngModel]="selectedBusType"
+                        (ngModelChange)="onBusTypeChange($event)" style="width: 120%;">
+                        <option *ngFor="let busType of busTypes; let i = index" [value]="busTypes[i].name"
+                            [selected]="busTypes[0].name">
+                            {{busTypes[i].name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell">Departure:</div>
+                <div class="cell">
+                    <select formControlName="departures" id="departures" [ngModel]="selectedDeparture"
+                        (ngModelChange)="onDepartureChange($event)" style="width: 120%;">
+                        <option *ngFor="let departure of departures ; let i = index" [value]="departures[i].name"
+                            [selected]="departures[0].name">
+                            {{departures[i].name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell">Price Range:</div>
+                <div class="cell">
+                    <select formControlName="priceranges" id="priceranges" [ngModel]="selectedPriceRange"
+                        (ngModelChange)="onBusPriceChange($event)" style="width: 120%;">
+                        <option *ngFor="let price of priceranges ; let i = index" [value]="priceranges[i].name"
+                            [selected]="priceranges[0].name">
+                            {{priceranges[i].name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
         </div>
-        <hr/>
+    </form>
+    <hr />
+
+    <div *ngIf="filteredBuses.length > 0" class="table-item" >
+        <div class="table" *ngFor="let bus of filteredBuses index as i; odd as isOdd; even as isEven"
+            [class.Odd]="isOdd" [class.even]="isEven">
+            <div class="rowGroup color">
+                <div class="first-row">
+                    <div class="cell">{{bus.route.sourceTiming}}-{{bus.route.destinationTiming}}</div>
+                    <div class="cell">{{bus.name}}</div>
+                    <div class="cell">RS {{bus.fare}}</div>
+                </div>
+                <div class="row">
+                    <div class="cell">{{bus.route.duration}}</div>
+                    <div class="cell">{{bus.busType}}</div>
+                    <div class="cell"><button class="custom-btn btn-16" (click)="selectSeat(bus.id)">Seat Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
 </div>

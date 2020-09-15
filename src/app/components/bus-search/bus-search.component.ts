@@ -21,7 +21,7 @@ export class BusSearchComponent implements OnInit {
 
   bus: Bus = new Bus();
   route : Route = new Route();
-  searchForm ; FormGroup;
+  searchForm : FormGroup;
   submitted = false;
   public buses: any[] = [];
   constructor(private data: DataService, private router: Router,private formBuilder: FormBuilder,private message: MessagingService) { }
@@ -30,7 +30,8 @@ export class BusSearchComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       source: new FormControl('', [Validators.required, Validators.maxLength(10)]),
       destination: new FormControl('', Validators.required),
-      sourceTiming: new FormControl('', Validators.required),
+      dateOfJourney: new FormControl('', Validators.required),
+      
     });
 
     // this.getAllBuses();
@@ -38,7 +39,8 @@ export class BusSearchComponent implements OnInit {
   }
   onSubmit(form){
     this.submitted = true;
-    this.getAllBuses(form.value.source, form.value.destination, form.value.sourceTiming);
+    console.log(form.value.dateOfJourney)
+    this.getAllBuses(form.value.source, form.value.destination, form.value.dateOfJourney);
   }
   getAllBuses(source: string, destination: string, sourceTiming : string): void {
     this.data.getSearchResult().subscribe(data => {
@@ -46,6 +48,7 @@ export class BusSearchComponent implements OnInit {
       //data.filter((bus:Bus)=> bus.route.source === source && bus.route.destination === destination)
       console.log(this.buses);
       this.message.sendMessage(this.buses);
+      localStorage.setItem('buses', JSON.stringify(this.buses));
       this.router.navigate(['/result'])
       })
   }
