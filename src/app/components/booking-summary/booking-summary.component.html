@@ -1,0 +1,21 @@
+<div class="searchResult">
+    <div class="summaryTitle">Booking Confirmed</div>
+    <div class="table-item">
+        <div class="table" *ngFor="let booking of bookings index as i">
+            <div class="row-q">
+                <div class="booking-ref"  *ngIf="i==0">Current Order Number : {{booking.id}}</div>
+                <div class="booking-ref"  *ngIf="i>0">Previous Order Number : {{booking.id}}</div>
+                <div class="first-row">
+                    Total : &#x20b9;{{booking.fare}}
+                </div>
+                <div class="first-row">
+                    From {{booking.bus.route.source}} To {{booking.bus.route.destination}}
+                </div>
+                <div class="first-row">
+                    Date : {{booking.bus.route.dateOfJourney}}
+                </div>
+                <div class="cell-q" *ngIf="i==0"><button class="custom-btn btn-16">Cancel</button></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,6 +6,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { BusSearchComponent } from './components/bus-search/bus-search.component';
 import { SelectBusSeatComponent } from './components/select-bus-seat/select-bus-seat.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
+import { BookingSummaryComponent } from './components/booking-summary/booking-summary.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'result', component: SearchResultComponent },
   { path: 'select', component: SelectBusSeatComponent },
   { path: 'payment', component: PaymentComponent },
+  { path: 'summary', component: BookingSummaryComponent },
 ];
 
 @NgModule({ 

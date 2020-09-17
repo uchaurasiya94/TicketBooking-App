@@ -10,46 +10,42 @@
     margin-top: 50px;
 }
 
-.result{
-    font-size: large;
-    padding: 10px;
-    text-align: left;
-}
-.resultRow{
-    margin-left: 150px;
+.summaryTitle{
+    height: 50px;
+    font-size: x-large;
+    text-align: center;
+    background: lightgrey;
 }
 
-.table {
-    display:table;
-    margin-left: 60px;
-}
-
-.table-item{
-  border: solid;
-}
-.header {
-    display:table-header-group;
-    font-weight:bold;
-}
 .rowGroup {
-    display:table-row-group;
+    margin-left: 120px;
+    padding: 30px;
+    width: 375px;
 }
-.row {
-    display:table-row;
+.row-q {
+    margin-left: 120px;
+    margin-top: 5px;
+    padding: 30px;
+    width: 380px;
+    border-radius: 15px;
+    border-style: outset;
+}
+.cell-q{
+    margin-left: 250px;
 }
 
 .odd  {   background-color: #fdfdff;} 
 .even {   background-color: #d9dbdb; }
 
-.sel{
-  width: 140%; 
-  height: 35px;
+.first-row{
+    padding-bottom: 10px;
+    font-weight: 700;
 }
 
-.res-title {
-  text-align: center;
-  font-size: xx-large;
-  padding: 20px 20px 20px 20px;
+.booking-ref{
+    color: blue;
+    font-weight: 500;
+    padding-bottom: 5px;
 }
 
 .rowGroup {
@@ -67,18 +63,6 @@
 }
 
 
-.first-row{
-    display: table-row;
-    font-weight: 700;
-}
-.cell {
-    display:table-cell;
-    width:25%;
-    font-size: 14px;
-    padding: 6px;
-    text-align: center;
-}
-
 .custom-btn {
     width: 130px;
     height: 40px;
@@ -92,9 +76,6 @@
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
-     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-     7px 7px 20px 0px rgba(0,0,0,.1),
-     4px 4px 5px 0px rgba(0,0,0,.1);
     outline: none;
   }
 .btn-16 {
@@ -128,6 +109,3 @@
   .btn-16:active {
     top: 2px;
   }
-
-
-  

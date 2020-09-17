@@ -72,8 +72,14 @@ export class PaymentComponent implements OnInit {
       this.payment.expiryDate = this.getExpiryDate();
       console.log(this.payment)
       this.dataService.makePayment(this.payment, this.booking.id).subscribe(res => {
-        console.log(res)
-      });
+        this.dataService.getBookingById(this.booking.id).subscribe(item => {
+          this.booking = item;
+          console.log(this.booking);
+          this.message.sendMessage(this.booking);
+          localStorage.setItem('booking', JSON.stringify(this.booking));
+          this.router.navigate(['/summary'])
+        });
+      })
     }
   }
 }

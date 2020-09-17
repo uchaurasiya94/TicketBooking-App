@@ -26,11 +26,13 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { BookingSummaryComponent } from './components/booking-summary/booking-summary.component';
 
 const routes: Routes = [
   { path: 'search', component: BusSearchComponent },
   { path: 'result', component: SearchResultComponent },
   { path: 'select', component: SelectBusSeatComponent },
+  { path: 'summary', component: BookingSummaryComponent },
 ];
 
 @NgModule({
@@ -40,7 +42,8 @@ const routes: Routes = [
     BusSearchComponent,
     SelectBusSeatComponent,
     SearchResultComponent,
-    NavComponent
+    NavComponent,
+    BookingSummaryComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes), 

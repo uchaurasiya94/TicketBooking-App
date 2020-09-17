@@ -1,11 +1,12 @@
 <div class="searchResult">
+    <div class="res-title">Search Results</div>
     <form [formGroup]="form" #myform="ngForm" (ngSubmit)="submit(myform)">
         <div class="rowGroup">
             <div class="row">
-                <div class="cell">BusType:</div>
+                <div class="cell"><b>BusType:</b></div>
                 <div class="cell">
                     <select formControlName="busTypes" id="bustypes" [ngModel]="selectedBusType"
-                        (ngModelChange)="onBusTypeChange($event)" style="width: 120%;">
+                        (ngModelChange)="onBusTypeChange($event)" class="sel">
                         <option *ngFor="let busType of busTypes; let i = index" [value]="busTypes[i].name"
                             [selected]="busTypes[0].name">
                             {{busTypes[i].name}}
@@ -14,10 +15,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="cell">Departure:</div>
+                <div class="cell"><b>Departure:</b></div>
                 <div class="cell">
                     <select formControlName="departures" id="departures" [ngModel]="selectedDeparture"
-                        (ngModelChange)="onDepartureChange($event)" style="width: 120%;">
+                        (ngModelChange)="onDepartureChange($event)" class="sel">
                         <option *ngFor="let departure of departures ; let i = index" [value]="departures[i].name"
                             [selected]="departures[0].name">
                             {{departures[i].name}}
@@ -26,10 +27,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="cell">Price Range:</div>
+                <div class="cell"><b>Range:</b></div>
                 <div class="cell">
                     <select formControlName="priceranges" id="priceranges" [ngModel]="selectedPriceRange"
-                        (ngModelChange)="onBusPriceChange($event)" style="width: 120%;">
+                        (ngModelChange)="onBusPriceChange($event)" class="sel">
                         <option *ngFor="let price of priceranges ; let i = index" [value]="priceranges[i].name"
                             [selected]="priceranges[0].name">
                             {{priceranges[i].name}}

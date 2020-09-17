@@ -40,6 +40,12 @@ export class DataService {
     );
   }
 
+  public getAllBookings():Observable<Booking[]> {
+    return this.http.get<Booking[]>(`http://localhost:8181/allbookings`).pipe(
+      map(data => data.map(data => new Booking().deserialize(data)))
+    );
+  }
+
   public getBookedSeat(id:any):Observable<String[]>{
     const  params = new  HttpParams().set('id', id);
     return this.http.get<String[]>(`http://localhost:8181/bookedseat`,{params});

@@ -69,8 +69,28 @@ export class SearchResultComponent implements OnInit {
 
 
   onBusPriceChange(price) {
-    console.log(price);
-    this.selectedPriceRange = price;
+    if(price == '0-1000'){
+      this.filteredBuses = this.buses.filter(bus=>
+        (bus.fare >=0) && (bus.fare <=1000)
+      );
+      console.log(this.filteredBuses)
+    }else if(price == '1000-2000'){
+      this.filteredBuses = this.buses.filter(bus=>
+        (bus.fare>1000) && (bus.fare<=2000)
+      );
+      console.log(this.filteredBuses)
+    }else if(price == '2000-3000'){
+      this.filteredBuses = this.buses.filter(bus=>
+        (bus.fare>2000) && (bus.fare<=3000)
+      );
+      console.log(this.filteredBuses)
+    }
+    else{
+      this.filteredBuses = this.buses.filter(bus=>
+        (bus.fare>3000)
+      );
+      console.log(this.filteredBuses)
+    }
   }
 
   getBusTypes(){
