@@ -12,6 +12,7 @@ export class Booking implements Deserializable{
     public noOfPassengers : number;
     public bus : Bus = new Bus;
     public seats : Seat[];
+    public bookingStatus :string
 
     deserialize(input: any){
         // Assign input to our object BEFORE deserialize our bus to prevent already deserialized buses from being overwritten.

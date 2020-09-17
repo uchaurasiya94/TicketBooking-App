@@ -48,6 +48,12 @@
     padding-bottom: 5px;
 }
 
+.cancel-booking-ref{
+    color: rgb(250, 25, 9);
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+
 .rowGroup {
   display:table-row-group;
 }

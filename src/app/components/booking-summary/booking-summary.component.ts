@@ -18,6 +18,17 @@ export class BookingSummaryComponent implements OnInit {
     this.booking = JSON.parse(localStorage.getItem('booking'));
     this.dataservice.getAllBookings().subscribe(item => {
       this.bookings =  item.reverse();
+      console.log(this.bookings)
+    });
+  }
+
+  cancelbooking(id:any){
+    console.log(id)
+    this.dataservice.cancelBooking(id).subscribe(bookingId=>{
+      console.log(bookingId);
+      this.dataservice.getAllBookings().subscribe(item => {
+        this.bookings =  item.reverse();
+      });
     });
   }
 

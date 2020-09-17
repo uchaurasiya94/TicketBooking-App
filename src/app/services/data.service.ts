@@ -14,10 +14,6 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers() {
-    return this.http.get('https://reqres.in/api/users')
-  }
-
  public getSearchResult(): Observable<Bus[]> {
     return this.http.get<Bus[]>(`http://localhost:8181/buses`).pipe(
       map(data => data.map(data => new Bus().deserialize(data)))
@@ -39,6 +35,12 @@ export class DataService {
       map(data => new Booking().deserialize(data))
     );
   }
+
+  public cancelBooking(id:any){
+      const params = new  HttpParams().set('id', id);
+      const headers = new HttpHeaders({'Content-Type': 'application/json'})
+      return this.http.get<any>(`http://localhost:8181/cancelbooking`, { params, headers });
+  }  
 
   public getAllBookings():Observable<Booking[]> {
     return this.http.get<Booking[]>(`http://localhost:8181/allbookings`).pipe(
