@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service'
 import { Router } from '@angular/router';
-import { CommonConstants,StatusCodes } from '../../app.constant';
-import { FormsModule,FormControl, FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { CommonConstants, StatusCodes } from '../../app.constant';
+import { FormsModule, FormControl, FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Bus } from '../../models/bus.model';
 import { Route } from '../../models/route.model';
 import * as moment from 'moment';
@@ -20,36 +20,41 @@ declare function escape(s: string): string;
 export class BusSearchComponent implements OnInit {
 
   bus: Bus = new Bus();
-  route : Route = new Route();
-  searchForm : FormGroup;
+  route: Route = new Route();
+  searchForm: FormGroup;
   submitted = false;
   public buses: any[] = [];
-  constructor(private data: DataService, private router: Router,private formBuilder: FormBuilder,private message: MessagingService) { }
+  constructor(private data: DataService, private router: Router, private formBuilder: FormBuilder, private message: MessagingService) { }
 
   ngOnInit() {
     this.searchForm = this.formBuilder.group({
-      source: new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      source: new FormControl('', Validators.required),
       destination: new FormControl('', Validators.required),
       dateOfJourney: new FormControl('', Validators.required),
-      
+
     });
 
     // this.getAllBuses();
 
   }
-  onSubmit(form){
-    this.submitted = true;
-    console.log(form.value.dateOfJourney)
-    this.getAllBuses(form.value.source, form.value.destination, form.value.dateOfJourney);
+  onSubmit(form) {
+    if (this.searchForm.invalid) {
+      return;
+    } else {
+      this.submitted = true;
+      console.log(form.value.dateOfJourney)
+      this.getAllBuses(form.value.source, form.value.destination, form.value.dateOfJourney);
+    }
   }
-  getAllBuses(source: string, destination: string, sourceTiming : string): void {
+  getAllBuses(source: string, destination: string, dateOfJourney: string): void {
     this.data.getSearchResult().subscribe(data => {
-      this.buses = data;
-      //data.filter((bus:Bus)=> bus.route.source === source && bus.route.destination === destination)
+      this.buses = data.filter((bus: Bus) => bus.route.source === source
+        && bus.route.destination === destination
+        && bus.route.dateOfJourney === dateOfJourney);
       console.log(this.buses);
       this.message.sendMessage(this.buses);
       localStorage.setItem('buses', JSON.stringify(this.buses));
       this.router.navigate(['/result'])
-      })
+    })
   }
 }

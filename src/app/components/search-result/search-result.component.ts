@@ -16,9 +16,9 @@ export class SearchResultComponent implements OnInit {
   public busTypes: any[]=[];
   public departures : any[]=[];
   public priceranges : any[]=[];
-  selectedBusType : string;
-  selectedDeparture : string;
-  selectedPriceRange : string;
+  selectedBusType : 'AC';
+  selectedDeparture : 'Early Morning';
+  selectedPriceRange : '0-1000';
   form: FormGroup;
   public bus: Bus;
   filteredBuses : Bus[];
@@ -95,27 +95,26 @@ export class SearchResultComponent implements OnInit {
 
   getBusTypes(){
     return [
-      { id: '1', name: 'AC' },
-      { id: '2', name: 'Non-AC' },
-      { id: '3', name: 'Sleeper' },
-      { id: '4', name: 'Seater' }
+      { id: '1', name: 'Non-AC' },
+      { id: '2', name: 'Sleeper' },
+      { id: '3', name: 'AC' }
     ];
   }
 
   departureList(){
     return [
-      { id: '1', name: 'Early Morning' },
+      { id: '1', name: 'Evening' },
       { id: '2', name: 'AfterNoon' },      
-      { id: '3', name: 'Evening' }
+      { id: '3', name: 'Early Morning' }
     ]
   }
 
   priceRangeList(){
     return [
-      { id: '1', name: '0-1000' },
-      { id: '2', name: '1000-2000' },
-      { id: '3', name: '2000-3000' },
-      { id: '4', name: 'Above 3000' },
+      { id: '1', name: 'Above 3000' },
+      { id: '2', name: '2000-3000' },
+      { id: '3', name: '1000-2000' },
+      { id: '4', name: '0-1000' },
     ]
   }
 

@@ -8,6 +8,7 @@ import { DataService } from '../../services/data.service'
 import { Bus } from 'src/app/models/bus.model';
 import { Subscription } from 'rxjs';
 import { Booking } from '../../models/booking.model'
+import { combineAll } from 'rxjs/operators';
 
 @Component({
   selector: 'app-select-bus-seat',
@@ -26,6 +27,7 @@ export class SelectBusSeatComponent implements OnInit {
   booking: Booking;
   passengers = 0;
   subscription: Subscription;
+  isSingleClick: Boolean = true; 
   constructor(private route: Router, private dataService: DataService,
     private router: Router, private message: MessagingService,
   ) { }
@@ -60,9 +62,28 @@ export class SelectBusSeatComponent implements OnInit {
     }
   }
 
-  public onMouseDown(mouseEvent: MouseEvent) {
-    console.log("Double click")
-    if (mouseEvent.detail > 1) mouseEvent.preventDefault();
+  clearSeat(e) {
+    console.log(e)
+    console.log("Doouble Click")
+    let seats = [];
+    seats = this.showSeatList.map(item => {
+      return item.seatNo
+    })
+    let id = document.getElementById(e);
+    id.innerHTML = `<img src="../assets/img/bseat.png" alt="">`
+    this.seat = {
+      seatNo: e,
+      fare: this.bus.fare,
+    } as Seat
+    this.clearSeatFromList(this.seat)
+    this.total -= this.seat.fare;
+  }
+
+
+  clearSeatFromList(seat){
+    this.showSeatList = this.showSeatList.filter(item => item.seatNo != seat.seatNo);
+    this.passengers = this.showSeatList.length;
+    this.bus.passengers = this.passengers;
   }
 
   showList(seat) {

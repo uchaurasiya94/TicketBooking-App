@@ -1,15 +1,15 @@
 <div class="searchBus">
 <div class="busTitle">Search for Buses</div>
-    <form #myform="ngForm" (ngSubmit)="onSubmit(myform)"  class="example-form">
+    <form #myform="ngForm"  [formGroup]="searchForm" (ngSubmit)="onSubmit(myform)"  class="example-form">
         <div class="example-full-width">
-            <input type="text" class="form-control inputform"  id="source" required [(ngModel)]="bus.route.source" name="source" placeholder="From*" >
+            <input type="text" class="form-control inputform"  id="source" required [(ngModel)]="bus.route.source" formControlName="source" placeholder="From*" >
         </div>
 
         <div class="example-full-width">
-            <input type="text" class="form-control inputform"  id=destination required [(ngModel)]="bus.route.destination" name="destination" placeholder="To*" >
+            <input type="text" class="form-control inputform"  id=destination required [(ngModel)]="bus.route.destination" formControlName="destination" placeholder="To*" >
         </div>
         <div class="example-full-width">
-          <input placeholder="Date of Journey" class="form-control inputform" type="date" onfocus="(this.type='date')" id="dateOfJourney" [ngModel]="bus.route.dateOfJourney | date:'dd/MM/y'" name="dateOfJourney" >
+          <input placeholder="Date of Journey" class="form-control inputform" type="date" onfocus="(this.type='date')" id="dateOfJourney" [ngModel]="bus.route.dateOfJourney | date:'dd/MM/y'" formControlName="dateOfJourney" >
         </div>
         <button class="custom-btn btn-16 search-btn" type="submit">Search</button>
     </form>
